@@ -1,7 +1,14 @@
+### Project target ###
 /target
+
+### IntelliJ IDEA ###
 .idea
 *.iml
 
+### PicGo ###
+upload
+
+### Module target and test ###
 log/target
 log/src/test
 
