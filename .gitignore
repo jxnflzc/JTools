@@ -1,5 +1,5 @@
 ### Project target ###
-/target
+target/
 
 ### IntelliJ IDEA ###
 .idea
@@ -9,6 +9,6 @@
 upload
 
 ### Module target and test ###
-log/target
-log/src/test
+**/src/test/**
+**/target/**
 
