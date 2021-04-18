@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>log</artifactId>
-    <description>jxnflzc's log java tool</description>
+    <description>jxnflzc's java log tool</description>
     <packaging>jar</packaging>
 
     <parent>
