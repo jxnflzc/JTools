@@ -6,7 +6,7 @@ target/
 *.iml
 
 ### PicGo ###
-upload
+upload/
 
 ### Module target and test ###
 **/src/test/**
