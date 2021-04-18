@@ -18,8 +18,21 @@
 
     ```xml
     <dependency>
-      <groupId>io.github.jxnflzc.jtools</groupId>
-      <artifactId>log</artifactId>
-      <version>${jtools.version}</version>
+        <groupId>io.github.jxnflzc.jtools</groupId>
+        <artifactId>log</artifactId>
+        <version>${jtools.version}</version>
     </dependency>
+    ```
+
+* log.properties配置文件
+
+    ```properties
+    # %d 日志打印时间，格式：yyyy/MM/dd HH:mm:ss.SSS
+    # %l 日志级别
+    # %C Java类名
+    # %M Java方法名
+    # %F Java文件名
+    # %L 日志调用行数
+    # %m 日志正文
+    pattern = %d [%l] %C.%M(%F:%L) - %m
     ```
