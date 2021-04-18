@@ -34,5 +34,12 @@
     # %F Java文件名
     # %L 日志调用行数
     # %m 日志正文
-    pattern = %d [%l] %C.%M(%F:%L) - %m
+    jtools.log.pattern = %d [%l] %C.%M(%F:%L) - %m
+    # 日志输出级别，具体如下
+    # DEBUG
+    # INFO
+    # WARN
+    # ERROR
+    # FATAL
+    jtools.log.level = DEBUG
     ```

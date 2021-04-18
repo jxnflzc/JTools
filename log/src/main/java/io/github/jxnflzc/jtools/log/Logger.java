@@ -13,6 +13,8 @@ public class Logger {
 
     private String timeTemplate;
 
+    private LogLevel minLogLevel;
+
     private static final String DEFAULT_NAME = "LOGGER";
 
     private static final String DEFAULT_TIME_FORMAT = "yyyy/MM/dd HH:mm:ss.SSS";
@@ -51,11 +53,21 @@ public class Logger {
                 properties.load(resourceAsStream);
                 resourceAsStream.close();
             } catch (IOException exception) {
-
+                // Do nothing.
             }
         }
-        String pattern = properties.getProperty("pattern");
+
+        // 获取日志输出格式
+        String pattern = properties.getProperty("jtools.log.pattern");
         this.template = pattern == null ? DEFAULT_TEMPLATE : pattern;
+
+        // 获取日志输出级别
+        String level = properties.getProperty("jtools.log.level");
+        try {
+            this.minLogLevel = generateLogLevel(level);
+        } catch (IllegalAccessException ex) {
+            this.minLogLevel = LogLevel.DEBUG;
+        }
 
         String timeTemplate = getTimeTemplateFromResource(template);
         this.timeTemplate = timeTemplate == null ? DEFAULT_TIME_FORMAT : timeTemplate;
@@ -63,6 +75,15 @@ public class Logger {
 
         //移除多余空格
         this.timeTemplate = this.timeTemplate.trim();
+    }
+
+    private LogLevel generateLogLevel(String level) throws IllegalAccessException {
+        for (LogLevel logLevel : LogLevel.values()) {
+            if (logLevel.toString().equals(level)) {
+                return logLevel;
+            }
+        }
+        throw new IllegalAccessException();
     }
 
     private String getTimeTemplateFromResource(String pattern) {
@@ -84,6 +105,10 @@ public class Logger {
     }
 
     private void printLog(String content, LogLevel logLevel, Object ... args) {
+        if (minLogLevel.compareTo(logLevel) > 0) {
+            return;
+        }
+
         for (Object arg : args) {
             content = content.replaceFirst("\\{}", arg.toString());
         }

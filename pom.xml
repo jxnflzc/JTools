@@ -6,7 +6,7 @@
 
     <groupId>io.github.jxnflzc.jtools</groupId>
     <artifactId>jtools</artifactId>
-    <version>1.1.2</version>
+    <version>1.2.0</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -20,6 +20,7 @@
 
     <modules>
         <module>log</module>
+        <module>pattern</module>
     </modules>
 
     <!-- 许可证信息 -->
@@ -29,6 +30,22 @@
             <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.8.0-M1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.jxnflzc.jtools</groupId>
+            <artifactId>log</artifactId>
+            <version>1.1.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <!-- SCM信息 -->
     <scm>
