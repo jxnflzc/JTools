@@ -27,8 +27,6 @@
 * log.properties配置文件
 
     ```properties
-    # [console|file] 表示console和file皆可
-
     # %d 日志打印时间，格式：yyyy/MM/dd HH:mm:ss.SSS
     # %l 日志级别
     # %C Java类名
@@ -36,14 +34,16 @@
     # %F Java文件名
     # %L 日志调用行数
     # %m 日志正文
-    jtools.log.[console|file].pattern = %d [%l] %C.%M(%F:%L) - %m
+    jtools.log.console.pattern = %d [%l] %C.%M(%F:%L) - %m
+    jtools.log.file.pattern = %d [%l] %C.%M(%F:%L) - %m
     # 日志输出级别，具体如下
     # DEBUG
     # INFO
     # WARN
     # ERROR
     # FATAL
-    jtools.log.[console|file].level = DEBUG
+    jtools.log.console.level = DEBUG
+    jtools.log.file.level = DEBUG
     # 日志输出到本地目录名，支持时间格式化
     jtools.log.file.path = {yyyy}/{MM}
     # 日志输出到本地文件名，支持时间格式化
