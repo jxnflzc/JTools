@@ -1,5 +1,10 @@
 package io.github.jxnflzc.jtools.log;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -9,11 +14,25 @@ import java.util.Properties;
 public class Logger {
     private String name;
 
-    private String template;
+    private String consoleTemplate;
 
-    private String timeTemplate;
+    private String fileTemplate;
 
-    private LogLevel minLogLevel;
+    private String consoleTimeTemplate;
+
+    private String fileTimeTemplate;
+
+    private LogLevel minConsoleLogLevel;
+
+    private LogLevel minFileLogLevel;
+
+    private String logPath;
+
+    private String logFile;
+
+    private static final String DEFAULT_LOG_PATH = "log";
+
+    private static final String DEFAULT_LOG_NAME = "log.log";
 
     private static final String DEFAULT_NAME = "LOGGER";
 
@@ -57,24 +76,81 @@ public class Logger {
             }
         }
 
+        // 获取日志本地保存路径及文件名
+        generateLogLocal(properties);
+
         // 获取日志输出格式
-        String pattern = properties.getProperty("jtools.log.pattern");
-        this.template = pattern == null ? DEFAULT_TEMPLATE : pattern;
+        generatePattern(properties);
 
         // 获取日志输出级别
-        String level = properties.getProperty("jtools.log.level");
-        try {
-            this.minLogLevel = generateLogLevel(level);
-        } catch (IllegalAccessException ex) {
-            this.minLogLevel = LogLevel.DEBUG;
+        generateLogLevel(properties);
+
+        // 生成时间相关模板
+        generateTimeTemplate();
+    }
+
+    private void generateLogLocal(Properties properties) {
+        String logPath = properties.getProperty("jtools.log.file.path");
+        String logFile = properties.getProperty("jtools.log.file.name");
+
+        if (StringUtils.isBlank(logPath) && StringUtils.isBlank(logFile)) {
+            return;
         }
 
-        String timeTemplate = getTimeTemplateFromResource(template);
-        this.timeTemplate = timeTemplate == null ? DEFAULT_TIME_FORMAT : timeTemplate;
-        this.template = this.template.replace("{" + this.timeTemplate + "}", "");
+        while (logPath.contains("{") && logPath.contains("}")) {
+            String logPathTimeTemplate = getTimeTemplateFromResource(0, logPath);
+            if (StringUtils.isNotBlank(logPathTimeTemplate)) {
+                logPath = logPath.replace("{" + logPathTimeTemplate + "}", getNowDateTime(logPathTimeTemplate));
+            }
+        }
+        this.logPath = StringUtils.isNotBlank(logPath) ? logPath : DEFAULT_LOG_PATH;
+        while (logFile.contains("{") && logFile.contains("}")) {
+            String logNameTimeTemplate = getTimeTemplateFromResource(0, logFile);
+            if (StringUtils.isNotBlank(logNameTimeTemplate)) {
+                logFile = logFile.replace("{" + logNameTimeTemplate + "}", getNowDateTime(logNameTimeTemplate));
+            }
+        }
+        this.logFile = StringUtils.isNotBlank(logFile) ? logFile : DEFAULT_LOG_NAME;
+    }
+
+    private void generatePattern(Properties properties) {
+        String consolePattern = properties.getProperty("jtools.log.console.pattern");
+        this.consoleTemplate = consolePattern == null ? DEFAULT_TEMPLATE : consolePattern;
+
+        String filePattern = properties.getProperty("jtools.log.file.pattern");
+        this.fileTemplate = filePattern == null ? DEFAULT_TEMPLATE : filePattern;
+    }
+
+    private void generateLogLevel(Properties properties) {
+        String consoleLevel = properties.getProperty("jtools.log.console.level");
+        try {
+            this.minConsoleLogLevel = generateLogLevel(consoleLevel);
+        } catch (IllegalAccessException ex) {
+            this.minConsoleLogLevel = LogLevel.DEBUG;
+        }
+
+        String fileLevel = properties.getProperty("jtools.log.file.level");
+        try {
+            this.minFileLogLevel = generateLogLevel(fileLevel);
+        } catch (IllegalAccessException ex) {
+            this.minFileLogLevel = LogLevel.DEBUG;
+        }
+    }
+
+    private void generateTimeTemplate() {
+        int timeIndex = consoleTemplate.indexOf("%d");
+        String consoleTimeTemplate = getTimeTemplateFromResource(timeIndex, consoleTemplate);
+        this.consoleTimeTemplate = consoleTimeTemplate == null ? DEFAULT_TIME_FORMAT : consoleTimeTemplate;
+        this.consoleTemplate = this.consoleTemplate.replace("{" + this.consoleTimeTemplate + "}", "");
+
+        timeIndex = fileTemplate.indexOf("%d");
+        String fileTimeTemplate = getTimeTemplateFromResource(timeIndex, fileTemplate);
+        this.fileTimeTemplate = fileTimeTemplate == null ? DEFAULT_TIME_FORMAT : fileTimeTemplate;
+        this.fileTemplate = this.fileTemplate.replace("{" + this.fileTimeTemplate + "}", "");
 
         //移除多余空格
-        this.timeTemplate = this.timeTemplate.trim();
+        this.consoleTimeTemplate = this.consoleTimeTemplate.trim();
+        this.fileTimeTemplate = this.fileTimeTemplate.trim();
     }
 
     private LogLevel generateLogLevel(String level) throws IllegalAccessException {
@@ -86,8 +162,7 @@ public class Logger {
         throw new IllegalAccessException();
     }
 
-    private String getTimeTemplateFromResource(String pattern) {
-        int timeIndex = pattern.indexOf("%d");
+    private String getTimeTemplateFromResource(int timeIndex, String pattern) {
         int from = -1, to = -1;
         for (; timeIndex < pattern.length(); timeIndex++) {
             if (pattern.charAt(timeIndex) == '{') {
@@ -105,7 +180,7 @@ public class Logger {
     }
 
     private void printLog(String content, LogLevel logLevel, Object ... args) {
-        if (minLogLevel.compareTo(logLevel) > 0) {
+        if (minConsoleLogLevel.compareTo(logLevel) > 0) {
             return;
         }
 
@@ -114,36 +189,76 @@ public class Logger {
         }
 
         // 格式化输出内容
-        String output = template;
-        output = output.replace("%d", getNowDateTime(timeTemplate));
-        output = output.replace("%l", String.format("%5s", logLevel));
-        output = output.replace("%C", name);
-        output = output.replace("%M", Thread.currentThread().getStackTrace()[3].getMethodName());
-        output = output.replace("%F", Thread.currentThread().getStackTrace()[3].getFileName());
-        output = output.replace("%L", String.valueOf(Thread.currentThread().getStackTrace()[3].getLineNumber()));
-        output = output.replace("%m", content);
+        String output = generateOutput(consoleTemplate, content, logLevel, consoleTimeTemplate);
 
         System.out.println(output);
     }
 
+    private void writeLog(String content, LogLevel logLevel, Object ... args) {
+        if (minFileLogLevel.compareTo(logLevel) > 0) {
+            return;
+        }
+
+        if (StringUtils.isBlank(logPath) || StringUtils.isBlank(logFile)) {
+            return;
+        }
+
+        for (Object arg : args) {
+            content = content.replaceFirst("\\{}", arg.toString());
+        }
+
+        // 格式化输出内容
+        String output = generateOutput(fileTemplate, content, logLevel, fileTimeTemplate);
+
+        try {
+            File tempFile = new File(logPath);
+            if (!tempFile.exists()) {
+                tempFile.mkdirs();
+            }
+            BufferedWriter bw = new BufferedWriter(new FileWriter(logPath + File.separator + logFile, true));
+            bw.write(output);
+            bw.newLine();
+            bw.close();
+        } catch (IOException exception) {
+            System.out.println(exception);
+        }
+    }
+
+    private String generateOutput(String template, String content, LogLevel logLevel, String timeTemplate) {
+        String output = template;
+        output = output.replace("%d", getNowDateTime(timeTemplate));
+        output = output.replace("%l", String.format("%5s", logLevel));
+        output = output.replace("%C", name);
+        output = output.replace("%M", Thread.currentThread().getStackTrace()[4].getMethodName());
+        output = output.replace("%F", Thread.currentThread().getStackTrace()[4].getFileName());
+        output = output.replace("%L", String.valueOf(Thread.currentThread().getStackTrace()[4].getLineNumber()));
+        output = output.replace("%m", content);
+        return output;
+    }
+
     public void debug(String content, Object ... args) {
         printLog(content, LogLevel.DEBUG, args);
+        writeLog(content, LogLevel.DEBUG, args);
     }
 
     public void info(String content, Object ... args) {
         printLog(content, LogLevel.INFO, args);
+        writeLog(content, LogLevel.INFO, args);
     }
 
     public void warn(String content, Object ... args) {
         printLog(content, LogLevel.WARN, args);
+        writeLog(content, LogLevel.WARN, args);
     }
 
     public void error(String content, Object ... args) {
         printLog(content, LogLevel.ERROR, args);
+        writeLog(content, LogLevel.ERROR, args);
     }
 
     public void fatal(String content, Object ... args) {
         printLog(content, LogLevel.FATAL, args);
+        writeLog(content, LogLevel.FATAL, args);
     }
 
     public String getName() {

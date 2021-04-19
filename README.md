@@ -13,7 +13,7 @@
 * 日志工具包，可用于简单的日志输出。
 
 * 日志分为5个等级：`DEBUG`，`INFO`，`WARN`，`ERROR`，`FATAL`
-  
+
 * Maven依赖
 
     ```xml
@@ -27,6 +27,8 @@
 * log.properties配置文件
 
     ```properties
+    # [console|file] 表示console和file皆可
+
     # %d 日志打印时间，格式：yyyy/MM/dd HH:mm:ss.SSS
     # %l 日志级别
     # %C Java类名
@@ -34,12 +36,30 @@
     # %F Java文件名
     # %L 日志调用行数
     # %m 日志正文
-    jtools.log.pattern = %d [%l] %C.%M(%F:%L) - %m
+    jtools.log.[console|file].pattern = %d [%l] %C.%M(%F:%L) - %m
     # 日志输出级别，具体如下
     # DEBUG
     # INFO
     # WARN
     # ERROR
     # FATAL
-    jtools.log.level = DEBUG
+    jtools.log.[console|file].level = DEBUG
+    # 日志输出到本地目录名，支持时间格式化
+    jtools.log.file.path = {yyyy}/{MM}
+    # 日志输出到本地文件名，支持时间格式化
+    jtools.log.file.name = {MM-dd}.log
+    ```
+
+### pattern
+
+* 设计模式工具包。
+
+* Maven依赖
+
+    ```xml
+    <dependency>
+        <groupId>io.github.jxnflzc.jtools</groupId>
+        <artifactId>pattern</artifactId>
+        <version>${jtools.version}</version>
+    </dependency>
     ```
