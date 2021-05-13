@@ -63,3 +63,17 @@
         <version>${jtools.version}</version>
     </dependency>
     ```
+  
+### util
+
+* Util工具包。
+
+* Maven依赖
+
+    ```xml
+    <dependency>
+        <groupId>io.github.jxnflzc.jtools</groupId>
+        <artifactId>util</artifactId>
+        <version>${jtools.version}</version>
+    </dependency>
+    ```
