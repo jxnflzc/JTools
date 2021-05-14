@@ -28,14 +28,16 @@
 
     ```properties
     # %d 日志打印时间，格式：yyyy/MM/dd HH:mm:ss.SSS
+    # %t 当前线程
+    # %l 日志级别
     # %l 日志级别
     # %C Java类名
     # %M Java方法名
     # %F Java文件名
     # %L 日志调用行数
     # %m 日志正文
-    jtools.log.console.pattern = %d [%l] %C.%M(%F:%L) - %m
-    jtools.log.file.pattern = %d [%l] %C.%M(%F:%L) - %m
+    jtools.log.console.pattern = %d [%t] [%l] %C.%M(%F:%L) - %m
+    jtools.log.file.pattern = %d [%t] [%l] %C.%M(%F:%L) - %m
     # 日志输出级别，具体如下
     # DEBUG
     # INFO
@@ -66,7 +68,7 @@
   
 ### util
 
-* Util工具包。
+* Util工具包，提供时间与类信息相关工具包。
 
 * Maven依赖
 

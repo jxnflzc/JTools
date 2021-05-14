@@ -38,7 +38,7 @@ public class Logger {
 
     private static final String DEFAULT_TIME_FORMAT = "yyyy/MM/dd HH:mm:ss.SSS";
 
-    private static final String DEFAULT_TEMPLATE = "%d [%l] %C.%M(%F:%L) - %m";
+    private static final String DEFAULT_TEMPLATE = "%d [%t] %C.%M [%l] - %m";
 
     protected Logger(Class<?> clazz) {
         if (null != clazz) {
@@ -228,6 +228,7 @@ public class Logger {
         String output = template;
         output = output.replace("%d", getNowDateTime(timeTemplate));
         output = output.replace("%l", String.format("%5s", logLevel));
+        output = output.replace("%t", Thread.currentThread().getName());
         output = output.replace("%C", name);
         output = output.replace("%M", Thread.currentThread().getStackTrace()[4].getMethodName());
         output = output.replace("%F", Thread.currentThread().getStackTrace()[4].getFileName());
