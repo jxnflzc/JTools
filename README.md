@@ -30,7 +30,6 @@
     # %d 日志打印时间，格式：yyyy/MM/dd HH:mm:ss.SSS
     # %t 当前线程
     # %l 日志级别
-    # %l 日志级别
     # %C Java类名
     # %M Java方法名
     # %F Java文件名
