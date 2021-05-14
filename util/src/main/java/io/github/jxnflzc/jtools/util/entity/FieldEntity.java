@@ -1,9 +1,9 @@
-package io.github.jxnflzc.util.entity;
+package io.github.jxnflzc.jtools.util.entity;
 
 import lombok.Data;
 
 @Data
-public class ParameterEntity {
+public class FieldEntity {
     private String name;
 
     private String desc;

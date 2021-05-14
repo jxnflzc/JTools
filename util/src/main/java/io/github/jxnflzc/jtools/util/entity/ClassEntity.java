@@ -1,4 +1,4 @@
-package io.github.jxnflzc.util.entity;
+package io.github.jxnflzc.jtools.util.entity;
 
 import lombok.Data;
 

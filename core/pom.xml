@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>util</artifactId>
-    <description>A java util package</description>
-    <packaging>jar</packaging>
+    <artifactId>core</artifactId>
+    <description>Core</description>
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -25,14 +25,17 @@
             <groupId>io.github.jxnflzc.jtools</groupId>
             <artifactId>log</artifactId>
             <version>${project.parent.version}</version>
-            <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
-            <scope>provided</scope>
+            <groupId>io.github.jxnflzc.jtools</groupId>
+            <artifactId>pattern</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.jxnflzc.jtools</groupId>
+            <artifactId>util</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
+
 </project>

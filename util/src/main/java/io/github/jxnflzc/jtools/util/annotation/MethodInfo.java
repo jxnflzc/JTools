@@ -1,4 +1,4 @@
-package io.github.jxnflzc.util.annotation;
+package io.github.jxnflzc.jtools.util.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -30,4 +30,12 @@ public abstract class Subject {
             observer.update(arg);
         }
     }
+
+    public void clearObservers() {
+        if (null == observers) {
+            throw new NullPointerException();
+        } else {
+            observers.clear();
+        }
+    }
 }

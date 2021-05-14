@@ -12,3 +12,5 @@ upload/
 **/src/test/**
 **/target/**
 
+### versions-maven-plugin
+*.versionsBackup

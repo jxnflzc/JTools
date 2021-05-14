@@ -1,13 +1,13 @@
-package io.github.jxnflzc.util;
+package io.github.jxnflzc.jtools.util;
 
-import io.github.jxnflzc.util.annotation.ClassInfo;
-import io.github.jxnflzc.util.annotation.FieldInfo;
-import io.github.jxnflzc.util.annotation.MethodInfo;
-import io.github.jxnflzc.util.annotation.ParameterInfo;
-import io.github.jxnflzc.util.entity.ClassEntity;
-import io.github.jxnflzc.util.entity.FieldEntity;
-import io.github.jxnflzc.util.entity.MethodEntity;
-import io.github.jxnflzc.util.entity.ParameterEntity;
+import io.github.jxnflzc.jtools.util.annotation.ClassInfo;
+import io.github.jxnflzc.jtools.util.annotation.FieldInfo;
+import io.github.jxnflzc.jtools.util.annotation.MethodInfo;
+import io.github.jxnflzc.jtools.util.annotation.ParameterInfo;
+import io.github.jxnflzc.jtools.util.entity.ClassEntity;
+import io.github.jxnflzc.jtools.util.entity.FieldEntity;
+import io.github.jxnflzc.jtools.util.entity.MethodEntity;
+import io.github.jxnflzc.jtools.util.entity.ParameterEntity;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
