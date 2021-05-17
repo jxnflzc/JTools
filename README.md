@@ -1,7 +1,7 @@
 <h1 align="center">Jtools</h1>
 
 <p align="center">
-    <a href="https://mvnrepository.com/artifact/io.github.jxnflzc.jtools"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc.jtools/jtools" alt="maven-central"></a>
+    <a href="https://mvnrepository.com/artifact/io.github.jxnflzc"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc/jtools" alt="maven-central"></a>
     <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html"><img src="https://img.shields.io/badge/JDK-8+-brightgreen.svg" alt="jdk 8+"></a>
     <a href="./LICENSE"><img src="https://img.shields.io/badge/license-Apache%202-orange" alt="license Apache 2.0"></a>
 </p>
@@ -18,8 +18,8 @@
 
     ```xml
     <dependency>
-        <groupId>io.github.jxnflzc.jtools</groupId>
-        <artifactId>log</artifactId>
+        <groupId>io.github.jxnflzc</groupId>
+        <artifactId>jtools-log</artifactId>
         <version>${jtools.version}</version>
     </dependency>
     ```
@@ -59,8 +59,8 @@
 
     ```xml
     <dependency>
-        <groupId>io.github.jxnflzc.jtools</groupId>
-        <artifactId>pattern</artifactId>
+        <groupId>io.github.jxnflzc</groupId>
+        <artifactId>jtools-pattern</artifactId>
         <version>${jtools.version}</version>
     </dependency>
     ```
@@ -73,8 +73,8 @@
 
     ```xml
     <dependency>
-        <groupId>io.github.jxnflzc.jtools</groupId>
-        <artifactId>util</artifactId>
+        <groupId>io.github.jxnflzc</groupId>
+        <artifactId>jtools-util</artifactId>
         <version>${jtools.version}</version>
     </dependency>
     ```
