@@ -7,6 +7,7 @@
     <artifactId>jtools-util</artifactId>
     <description>A java util package</description>
     <packaging>jar</packaging>
+    <version>${jtools.util.version}</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -24,7 +25,7 @@
         <dependency>
             <groupId>io.github.jxnflzc</groupId>
             <artifactId>jtools-log</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${jtools.log.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
