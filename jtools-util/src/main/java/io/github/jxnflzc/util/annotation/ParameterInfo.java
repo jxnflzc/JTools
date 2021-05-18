@@ -14,9 +14,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.PARAMETER)
 @Documented
 public @interface ParameterInfo {
-    // Name of parameter
+    /**
+     * @return Name of parameter
+     */
     String name() default "";
 
-    // Description of parameter
+    /**
+     * @return Description of parameter
+     */
     String desc() default "";
 }

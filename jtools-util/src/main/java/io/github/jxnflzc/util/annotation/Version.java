@@ -16,14 +16,29 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Documented
 public @interface Version {
+    /**
+     * @return Prefix of version
+     */
     String prefix() default "v";
 
+    /**
+     * @return Major version of version
+     */
     String major() default "1";
 
+    /**
+     * @return Minor version of version
+     */
     String minor() default "0";
 
+    /**
+     * @return Build version of version
+     */
     String build() default "0";
 
+    /**
+     * @return Is snapshot version or not
+     */
     boolean isSnapshot() default false;
 
     Class<? extends VersionHandler> versionHandler() default VersionHandler.class;

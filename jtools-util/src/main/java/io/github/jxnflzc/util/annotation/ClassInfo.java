@@ -14,9 +14,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Documented
 public @interface ClassInfo {
-    // Name of class
+    /**
+     * @return Name of class
+     */
     String name() default "";
 
-    // Description of class
+    /**
+     * @return Description of class
+     */
     String desc() default "";
 }

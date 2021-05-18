@@ -11,12 +11,24 @@ import java.util.List;
  */
 @Data
 public class ClassEntity {
+    /**
+     * Name of class
+     */
     private String name;
 
+    /**
+     * Description of class
+     */
     private String desc;
 
+    /**
+     * Fields of class
+     */
     private List<FieldEntity> fields;
 
+    /**
+     * Methods of class
+     */
     private List<MethodEntity> methods;
 
     public ClassEntity() {

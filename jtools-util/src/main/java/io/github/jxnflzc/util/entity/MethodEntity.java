@@ -11,12 +11,24 @@ import java.util.List;
  */
 @Data
 public class MethodEntity {
+    /**
+     * Name of method
+     */
     private String name;
 
+    /**
+     * Description of method
+     */
     private String desc;
 
+    /**
+     * Return type of method
+     */
     private String returnType;
 
+    /**
+     * Parameters of method
+     */
     private List<ParameterEntity> parameters;
 
     public MethodEntity() {

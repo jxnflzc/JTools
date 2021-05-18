@@ -19,6 +19,11 @@ import java.lang.reflect.Parameter;
  * @version 1.0
  */
 public class ClassInfoUtil {
+    /**
+     * Get class info
+     * @param clazz Class object which you want to know the info
+     * @return Info
+     */
     public static ClassEntity getClassEntity(Class<?> clazz) {
         ClassEntity ce = new ClassEntity();
 

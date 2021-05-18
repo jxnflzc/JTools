@@ -8,9 +8,18 @@ import lombok.Data;
  */
 @Data
 public class ParameterEntity {
+    /**
+     * Name of parameter
+     */
     private String name;
 
+    /**
+     * Description of parameter
+     */
     private String desc;
 
+    /**
+     * Type of parameter
+     */
     private String type;
 }

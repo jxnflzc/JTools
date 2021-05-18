@@ -14,9 +14,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Documented
 public @interface MethodInfo {
-    // Name of method
+    /**
+     * @return Name of method
+     */
     String name() default "";
 
-    // Description of method
+    /**
+     * @return Description of method
+     */
     String desc() default "";
 }

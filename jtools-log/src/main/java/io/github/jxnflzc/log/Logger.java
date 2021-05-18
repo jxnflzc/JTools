@@ -321,6 +321,11 @@ public class Logger {
         return name;
     }
 
+    /**
+     * Log level
+     * @author jxnflzc
+     * @version 1.0
+     */
     enum LogLevel {
         DEBUG, INFO, WARN, ERROR, FATAL;
     }

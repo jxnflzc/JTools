@@ -14,9 +14,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Documented
 public @interface FieldInfo {
-    // Name of field
+    /**
+     * @return Name of field
+     */
     String name() default "";
 
-    // Description of field
+    /**
+     * @return Description of field
+     */
     String desc() default "";
 }

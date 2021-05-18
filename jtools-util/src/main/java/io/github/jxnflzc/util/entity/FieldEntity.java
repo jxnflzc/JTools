@@ -8,9 +8,18 @@ import lombok.Data;
  */
 @Data
 public class FieldEntity {
+    /**
+     * Name of field
+     */
     private String name;
 
+    /**
+     * Description of field
+     */
     private String desc;
 
+    /**
+     * Type of field
+     */
     private String type;
 }
