@@ -10,6 +10,8 @@
 
 ### log
 
+* <a href="https://mvnrepository.com/artifact/io.github.jxnflzc/jtools-log"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc/jtools-log" alt="jtools-log"></a>
+
 * 日志工具包，可用于简单的日志输出。
 
 * 日志分为5个等级：`DEBUG`，`INFO`，`WARN`，`ERROR`，`FATAL`
@@ -20,7 +22,7 @@
     <dependency>
         <groupId>io.github.jxnflzc</groupId>
         <artifactId>jtools-log</artifactId>
-        <version>${jtools.version}</version>
+        <version>${jtools.log.version}</version>
     </dependency>
     ```
 
@@ -53,6 +55,8 @@
 
 ### pattern
 
+* <a href="https://mvnrepository.com/artifact/io.github.jxnflzc/jtools-pattern"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc/jtools-pattern" alt="jtools-pattern"></a>
+
 * 设计模式工具包，包含部分设计模式接口及抽象类。
 
 * Maven依赖
@@ -61,11 +65,13 @@
     <dependency>
         <groupId>io.github.jxnflzc</groupId>
         <artifactId>jtools-pattern</artifactId>
-        <version>${jtools.version}</version>
+        <version>${jtools.pattern.version}</version>
     </dependency>
     ```
   
 ### util
+
+* <a href="https://mvnrepository.com/artifact/io.github.jxnflzc/jtools-util"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc/jtools-util" alt="jtools-util"></a>
 
 * Util工具包，提供时间与类信息相关工具包。
 
@@ -75,6 +81,6 @@
     <dependency>
         <groupId>io.github.jxnflzc</groupId>
         <artifactId>jtools-util</artifactId>
-        <version>${jtools.version}</version>
+        <version>${jtools.util.version}</version>
     </dependency>
     ```
