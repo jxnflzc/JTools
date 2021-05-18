@@ -12,39 +12,85 @@ import java.util.Date;
 import java.util.Properties;
 
 /**
- * A log
+ * Used to output logs
  * @author jxnflzc
- * date 2021/4/17
+ * @version 1.0
  */
 public class Logger {
+    /**
+     * Class name
+     */
     private String name;
 
+    /**
+     * Console output template
+     */
     private String consoleTemplate;
 
+    /**
+     * File output template
+     */
     private String fileTemplate;
 
+    /**
+     * Console output time template
+     */
     private String consoleTimeTemplate;
 
+    /**
+     * File output time template
+     */
     private String fileTimeTemplate;
 
+    /**
+     * The lowest log output level of the console
+     */
     private LogLevel minConsoleLogLevel;
 
+    /**
+     * The lowest log output level of the file
+     */
     private LogLevel minFileLogLevel;
 
+    /**
+     * Log path
+     */
     private String logPath;
 
+    /**
+     * Log file name
+     */
     private String logFile;
 
+    /**
+     * Default log path
+     */
     private static final String DEFAULT_LOG_PATH = "log";
 
+    /**
+     * Default log file name
+     */
     private static final String DEFAULT_LOG_NAME = "log.log";
 
+    /**
+     * Default name
+     */
     private static final String DEFAULT_NAME = "LOGGER";
 
+    /**
+     * Default output time template
+     */
     private static final String DEFAULT_TIME_FORMAT = "yyyy/MM/dd HH:mm:ss.SSS";
 
+    /**
+     * Default output template
+     */
     private static final String DEFAULT_TEMPLATE = "%d [%t] %C.%M [%l] - %m";
 
+    /**
+     * Create log output class through class object
+     * @param clazz Class object
+     */
     protected Logger(Class<?> clazz) {
         if (null != clazz) {
             this.name = clazz.getName();
@@ -54,6 +100,10 @@ public class Logger {
         readProperties();
     }
 
+    /**
+     * Create log output class by class name
+     * @param name Class object
+     */
     protected Logger(String name) {
         if (null != name) {
             this.name = name;

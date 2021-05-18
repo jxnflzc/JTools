@@ -16,7 +16,7 @@ import java.lang.reflect.Parameter;
 
 /**
  * @author jxnflzc
- * date 2021/5/13
+ * @version 1.0
  */
 public class ClassInfoUtil {
     public static ClassEntity getClassEntity(Class<?> clazz) {

@@ -2,7 +2,7 @@ package io.github.jxnflzc.util.handler;
 
 /**
  * @author jxnflzc
- * date 2021/5/18
+ * @version 1.0
  */
 public interface VersionHandler {
 }
