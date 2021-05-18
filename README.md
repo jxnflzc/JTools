@@ -8,6 +8,23 @@
 
 <h1 align="center">Module</h1>
 
+### core
+
+* <a href="https://mvnrepository.com/artifact/io.github.jxnflzc/jtools-core"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc/jtools-core" alt="jtools-core"></a>
+
+* 包含以下所有工具包。
+
+* Maven依赖
+
+    ```xml
+    <dependency>
+        <groupId>io.github.jxnflzc</groupId>
+        <artifactId>jtools-core</artifactId>
+        <version>${jtools.core.version}</version>
+    </dependency>
+    ```
+
+
 ### log
 
 * <a href="https://mvnrepository.com/artifact/io.github.jxnflzc/jtools-log"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc/jtools-log" alt="jtools-log"></a>

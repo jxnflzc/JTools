@@ -12,10 +12,10 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <jtools.log.version>2.0.0</jtools.log.version>
-        <jtools.pattern.version>2.0.0</jtools.pattern.version>
+        <jtools.core.version>2.0.1</jtools.core.version>
+        <jtools.log.version>2.0.1</jtools.log.version>
+        <jtools.pattern.version>2.0.1</jtools.pattern.version>
         <jtools.util.version>2.0.1</jtools.util.version>
-        <jtools.core.version>2.0.0</jtools.core.version>
     </properties>
 
     <name>jtools</name>

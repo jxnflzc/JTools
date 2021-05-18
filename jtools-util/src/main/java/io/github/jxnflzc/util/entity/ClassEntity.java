@@ -5,6 +5,10 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author jxnflzc
+ * @date 2021/5/13
+ */
 @Data
 public class ClassEntity {
     private String name;

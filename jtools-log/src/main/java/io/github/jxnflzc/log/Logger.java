@@ -11,6 +11,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
+/**
+ * @author jxnflzc
+ * @date 2021/4/17
+ */
 public class Logger {
     private String name;
 
