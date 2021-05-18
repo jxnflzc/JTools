@@ -4,7 +4,7 @@ import lombok.SneakyThrows;
 
 /**
  * @author jxnflzc
- * @date 2021/5/18
+ * date 2021/5/18
  */
 public class JtoolsBeanUtil {
     @SneakyThrows

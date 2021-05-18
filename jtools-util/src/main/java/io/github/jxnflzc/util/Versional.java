@@ -5,7 +5,7 @@ import io.github.jxnflzc.util.exception.VersionException;
 
 /**
  * @author jxnflzc
- * @date 2021/5/18
+ * date 2021/5/18
  */
 public interface Versional {
     /**

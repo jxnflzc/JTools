@@ -12,9 +12,9 @@
 
 * <a href="https://mvnrepository.com/artifact/io.github.jxnflzc/jtools-core"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc/jtools-core" alt="jtools-core"></a>
 
-* 包含以下所有工具包。
+* Contains all the following kits.
 
-* Maven依赖
+* Maven Dependency
 
     ```xml
     <dependency>
@@ -29,11 +29,11 @@
 
 * <a href="https://mvnrepository.com/artifact/io.github.jxnflzc/jtools-log"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc/jtools-log" alt="jtools-log"></a>
 
-* 日志工具包，可用于简单的日志输出。
+* The log toolkit can be used for simple log output.
 
-* 日志分为5个等级：`DEBUG`，`INFO`，`WARN`，`ERROR`，`FATAL`
+* The log is divided into 5 levels:`DEBUG`，`INFO`，`WARN`，`ERROR`，`FATAL`
 
-* Maven依赖
+* Maven Dependency
 
     ```xml
     <dependency>
@@ -43,20 +43,20 @@
     </dependency>
     ```
 
-* log.properties配置文件
+* log.properties configuration file
 
     ```properties
-    # %d 日志打印时间，格式：yyyy/MM/dd HH:mm:ss.SSS
-    # %t 当前线程
-    # %l 日志级别
-    # %C Java类名
-    # %M Java方法名
-    # %F Java文件名
-    # %L 日志调用行数
-    # %m 日志正文
+    # %d Log printing time, format:yyyy/MM/dd HH:mm:ss.SSS
+    # %t Current thread
+    # %l Log level
+    # %C Java class name
+    # %M Java method name
+    # %F Java file name
+    # %L Number of log call lines
+    # %m Log body
     jtools.log.console.pattern = %d [%t] [%l] %C.%M(%F:%L) - %m
     jtools.log.file.pattern = %d [%t] [%l] %C.%M(%F:%L) - %m
-    # 日志输出级别，具体如下
+    # Log output level, as follows
     # DEBUG
     # INFO
     # WARN
@@ -64,9 +64,9 @@
     # FATAL
     jtools.log.console.level = DEBUG
     jtools.log.file.level = DEBUG
-    # 日志输出到本地目录名，支持时间格式化
+    # Log output to the local directory name, support time formatting
     jtools.log.file.path = {yyyy}/{MM}
-    # 日志输出到本地文件名，支持时间格式化
+    # Log output to local file name, support time formatting
     jtools.log.file.name = {MM-dd}.log
     ```
 
@@ -74,9 +74,9 @@
 
 * <a href="https://mvnrepository.com/artifact/io.github.jxnflzc/jtools-pattern"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc/jtools-pattern" alt="jtools-pattern"></a>
 
-* 设计模式工具包，包含部分设计模式接口及抽象类。
+* Design pattern toolkit, including some design pattern interfaces and abstract classes.
 
-* Maven依赖
+* Maven Dependency
 
     ```xml
     <dependency>
@@ -90,9 +90,9 @@
 
 * <a href="https://mvnrepository.com/artifact/io.github.jxnflzc/jtools-util"><img src="https://img.shields.io/maven-central/v/io.github.jxnflzc/jtools-util" alt="jtools-util"></a>
 
-* Util工具包，提供时间与类信息相关工具包。
+* Util toolkit, provides toolkits related to time and class information.
 
-* Maven依赖
+* Maven Dependency
 
     ```xml
     <dependency>

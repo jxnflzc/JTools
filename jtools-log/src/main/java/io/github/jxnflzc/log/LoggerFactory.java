@@ -2,7 +2,7 @@ package io.github.jxnflzc.log;
 
 /**
  * @author jxnflzc
- * @date 2021/4/17
+ * date 2021/4/17
  */
 public class LoggerFactory {
     public static Logger getLogger(Class<?> clazz) {

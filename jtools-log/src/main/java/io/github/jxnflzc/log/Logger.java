@@ -12,8 +12,9 @@ import java.util.Date;
 import java.util.Properties;
 
 /**
+ * A log
  * @author jxnflzc
- * @date 2021/4/17
+ * date 2021/4/17
  */
 public class Logger {
     private String name;

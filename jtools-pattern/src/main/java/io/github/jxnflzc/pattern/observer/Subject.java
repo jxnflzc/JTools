@@ -4,7 +4,7 @@ import java.util.Vector;
 
 /**
  * @author jxnflzc
- * @date 2021/4/18
+ * date 2021/4/18
  */
 public abstract class Subject {
     private Vector<Observer> observers;
