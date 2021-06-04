@@ -1,7 +1,5 @@
 package io.github.jxnflzc.util.annotation;
 
-import io.github.jxnflzc.util.handler.VersionHandler;
-
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -41,5 +39,8 @@ public @interface Version {
      */
     boolean isSnapshot() default false;
 
-    Class<? extends VersionHandler> versionHandler() default VersionHandler.class;
+    /**
+     * @return Authors of class
+     */
+    String[] authors() default {};
 }
